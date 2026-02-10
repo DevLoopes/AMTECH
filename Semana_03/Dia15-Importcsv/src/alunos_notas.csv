@@ -1,0 +1,37 @@
+aluno_id,nome,turma,idade,cidade,disciplina,prova1,prova2,trabalho,faltas,data_matricula
+A001,Ana Souza,1A,14,Manaus,Matematica,7.8,6.8,8.8,3,2025-09-05
+A001,Ana Souza,1A,14,Manaus,Geografia,9.6,6.6,7.7,3,2025-09-05
+A001,Ana Souza,1A,14,Manaus,Ciencias,9.7,8.3,7.4,2,2025-09-05
+A002,Bruno Lima,1A,15,Manaus,Matematica,7.9,6.2,7.4,0,2025-09-24
+A002,Bruno Lima,1A,15,Manaus,Geografia,7.4,3.7,5.9,0,2025-09-24
+A002,Bruno Lima,1A,15,Manaus,Ciencias,6.0,5.3,8.4,1,2025-09-24
+A003,Carla Santos,1A,14,Iranduba,Portugues,5.5,4.6,9.8,0,2025-10-17
+A003,Carla Santos,1A,14,Iranduba,Geografia,6.6,7.1,6.3,8,2025-10-17
+A003,Carla Santos,1A,14,Iranduba,Ciencias,6.1,7.2,6.6,3,2025-10-17
+A004,Diego Rocha,1B,16,Manaus,Geografia,7.6,6.0,7.6,9,2025-09-27
+A004,Diego Rocha,1B,16,Manaus,Historia,6.0,10.0,8.0,4,2025-09-27
+A004,Diego Rocha,1B,16,Manaus,Matematica,5.2,8.4,6.5,12,2025-09-27
+A005,Eduarda Alves,1B,15,Manacapuru,Matematica,7.4,3.7,6.4,5,2025-09-24
+A005,Eduarda Alves,1B,15,Manacapuru,Portugues,7.3,8.3,8.2,4,2025-09-24
+A005,Eduarda Alves,1B,15,Manacapuru,Ciencias,6.8,6.5,6.2,2,2025-09-24
+A006,Felipe Costa,1B,16,Manaus,Portugues,5.8,6.2,9.3,6,2025-08-12
+A006,Felipe Costa,1B,16,Manaus,Ciencias,7.6,4.0,8.4,1,2025-08-12
+A006,Felipe Costa,1B,16,Manaus,Matematica,6.3,5.8,8.7,5,2025-08-12
+A007,Gabriela Melo,1C,14,Itacoatiara,Ciencias,8.8,8.6,7.0,7,2025-11-02
+A007,Gabriela Melo,1C,14,Itacoatiara,Geografia,6.5,7.6,9.2,8,2025-11-02
+A007,Gabriela Melo,1C,14,Itacoatiara,Matematica,6.2,6.7,6.7,1,2025-11-02
+A008,Hugo Martins,1C,15,Manaus,Historia,5.0,8.4,9.6,10,2025-09-07
+A008,Hugo Martins,1C,15,Manaus,Matematica,6.9,8.7,8.4,9,2025-09-07
+A008,Hugo Martins,1C,15,Manaus,Ciencias,5.9,7.6,9.8,5,2025-09-07
+A009,Isabela Nunes,1C,14,Careiro,Geografia,6.9,9.7,4.9,0,2025-08-09
+A009,Isabela Nunes,1C,14,Careiro,Portugues,8.4,7.1,7.6,10,2025-08-09
+A009,Isabela Nunes,1C,14,Careiro,Ciencias,7.2,3.6,7.7,3,2025-08-09
+A010,Jo??o Pedro,1A,15,Manaus,Ciencias,7.6,9.5,7.4,1,2025-11-19
+A010,Jo??o Pedro,1A,15,Manaus,Matematica,5.6,6.1,9.1,6,2025-11-19
+A010,Jo??o Pedro,1A,15,Manaus,Historia,7.6,6.1,8.6,4,2025-11-19
+A011,Karla Oliveira,1B,16,Rio Preto da Eva,Historia,7.2,8.6,7.2,5,2025-09-17
+A011,Karla Oliveira,1B,16,Rio Preto da Eva,Ciencias,6.4,6.3,6.2,3,2025-09-17
+A011,Karla Oliveira,1B,16,Rio Preto da Eva,Matematica,7.5,7.4,8.0,10,2025-09-17
+A012,Lucas Ferreira,1C,15,Manaus,Ciencias,6.6,4.6,7.5,2,2025-10-21
+A012,Lucas Ferreira,1C,15,Manaus,Matematica,6.4,5.6,7.8,8,2025-10-21
+A012,Lucas Ferreira,1C,15,Manaus,Geografia,7.7,10.0,8.2,11,2025-10-21

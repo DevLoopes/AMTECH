@@ -1,0 +1,6 @@
+produto;quantidade;preco
+controle;12;149.90
+headset;5;89.90 
+mouse;20;39.90 
+teclado;7;119.90 
+cabo_hdmi;15;24.90
