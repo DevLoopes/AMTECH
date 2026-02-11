@@ -1,0 +1,16 @@
+{
+  "id": "u_0006",
+  "username": "weverton.blanco",
+  "role": "USER",
+  "sector": "TI",
+  "password": {
+    "algo": "sha256",
+    "iterations": 220000,
+    "salt": "kpZwuVi17LP4hQCBJuabZQ==",
+    "hash": "mOERzrleXweEsu7dKuWwcY/bD8pgMzwg68G6WNdFBI8="
+  },
+  "created_at": "2026-02-11T12:34:58",
+  "updated_at": "2026-02-11T12:34:58",
+  "must_change_password": true,
+  "is_active": true
+}

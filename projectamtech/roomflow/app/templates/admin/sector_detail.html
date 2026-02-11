@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="h5 mb-0">Setor: {{ sector }}</h2>
+  <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('admin.sectors_list') }}">Voltar</a>
+</div>
+
+<div class="rf-card p-3">
+  <table class="table table-sm align-middle">
+    <thead><tr><th>ID</th><th>Usuário</th><th>Role</th><th>Setor</th><th>Criado em</th><th>Atualizado em</th><th>Ações</th></tr></thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.sector }}</td>
+        <td>{{ u.created_at or '-' }}</td>
+        <td>{{ u.updated_at or '-' }}</td>
+        <td>
+          <form method="post" action="{{ url_for('admin.sector_user_update', sector_name=sector, user_id=u.id) }}" class="d-flex gap-1">
+            <input type="hidden" name="return_sector" value="{{ sector }}">
+            <select class="form-select form-select-sm" name="role">
+              {% for r in ['ADMIN','RH','USER'] %}
+              <option value="{{ r }}" {% if u.role == r %}selected{% endif %}>{{ r }}</option>
+              {% endfor %}
+            </select>
+            <select class="form-select form-select-sm" name="sector">
+              {% for s in sectors %}
+              <option value="{{ s }}" {% if u.sector == s %}selected{% endif %}>{{ s }}</option>
+              {% endfor %}
+            </select>
+            <button class="btn btn-sm btn-outline-primary">Salvar</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7" class="text-center text-muted">Não há usuários neste setor.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

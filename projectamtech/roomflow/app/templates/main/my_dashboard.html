@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h4 mb-3">Meu Painel</h2>
+<div class="row g-3 mb-3">
+  <div class="col-md-3"><div class="rf-card p-3"><div class="text-muted small">Minhas reservas hoje</div><div class="display-6">{{ data.bookings_today|length }}</div></div></div>
+  <div class="col-md-3"><div class="rf-card p-3"><div class="text-muted small">Próximas reservas</div><div class="display-6">{{ data.upcoming|length }}</div></div></div>
+  <div class="col-md-3"><div class="rf-card p-3"><div class="text-muted small">Solicitações pendentes</div><div class="display-6">{{ data.pending|length }}</div></div></div>
+  <div class="col-md-3"><div class="rf-card p-3"><div class="text-muted small">Notificações recentes</div><div class="display-6">{{ data.notifications|length }}</div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="rf-card p-3">
+      <h3 class="h6">Próximas reservas</h3>
+      {% for b in data.upcoming %}
+      <div class="border-bottom py-2 d-flex justify-content-between"><span>{{ format_date_br(b.date) }} {{ b.start }}-{{ b.end }} ({{ b.room_id }})</span><span class="badge text-bg-primary">{{ b.status }}</span></div>
+      {% else %}<div class="text-muted">Sem reservas próximas.</div>{% endfor %}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="rf-card p-3">
+      <h3 class="h6">Notificações recentes</h3>
+      {% for n in data.notifications %}
+      <div class="border-bottom py-2"><strong>{{ n.title }}</strong><div class="small text-muted">{{ n.message }}</div></div>
+      {% else %}<div class="text-muted">Sem notificações.</div>{% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

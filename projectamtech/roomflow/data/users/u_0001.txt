@@ -1,0 +1,16 @@
+{
+  "id": "u_0001",
+  "username": "admin",
+  "role": "ADMIN",
+  "sector": "RH",
+  "password": {
+    "algo": "sha256",
+    "iterations": 220000,
+    "salt": "slVMsfxOGDAA2ghX0tUABA==",
+    "hash": "CDzQ1qtViBEaSNJhPBd1IXR529PROgpH4olJ0NUqcjc="
+  },
+  "created_at": "",
+  "updated_at": "2026-02-11T14:01:55",
+  "must_change_password": true,
+  "is_active": true
+}

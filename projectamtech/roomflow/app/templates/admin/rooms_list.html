@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-3">Logs de Auditoria ({{ month }})</h3>
+<div class="page-card p-3">
+  <form method="get" class="row g-2 mb-3">
+    <div class="col-md-3"><input name="month" class="form-control" value="{{ month }}" placeholder="YYYY-MM"></div>
+    <div class="col-md-2"><button class="btn btn-primary">Filtrar</button></div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-sm table-striped">
+      <thead><tr><th>Data/Hora</th><th>Ator</th><th>Evento</th><th>Payload</th></tr></thead>
+      <tbody>
+        {% for ev in logs %}
+        <tr>
+          <td>{{ ev.ts }}</td>
+          <td>{{ ev.actor_username }} ({{ ev.actor_id }})</td>
+          <td>{{ ev.event_type }}</td>
+          <td><code>{{ ev.payload }}</code></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4" class="text-center">Sem eventos no período.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

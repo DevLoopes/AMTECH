@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-3">{% if my_view %}Minhas Reservas{% else %}Reservas{% endif %}</h3>
+<div class="page-card p-3">
+  <table class="table table-sm table-bordered">
+    <thead><tr><th>ID</th><th>Sala</th><th>Data</th><th>Hora</th><th>Solicitante</th><th>Status</th><th>Ações</th></tr></thead>
+    <tbody>
+      {% for b in bookings %}
+      <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.room_id }}</td>
+        <td>{{ b.date }}</td>
+        <td>{{ b.start_time }} - {{ b.end_time }}</td>
+        <td>{{ b.username }} ({{ b.sector }})</td>
+        <td>{{ b.status }}{% if b.is_emergency %} - EMERGÊNCIA{% endif %}</td>
+        <td>
+          {% if my_view %}
+            {% if b.status == 'ATIVA' %}
+            <div class="d-flex gap-1">
+              <form method="post" action="{{ url_for('main.booking_checkin', booking_id=b.id) }}"><button class="btn btn-sm btn-success">Check-in</button></form>
+              <form method="post" action="{{ url_for('main.cancel_my_booking', booking_id=b.id) }}"><button class="btn btn-sm btn-outline-danger">Cancelar</button></form>
+            </div>
+            {% endif %}
+          {% else %}
+            {% if b.status == 'ATIVA' %}
+            <form method="post" action="{{ url_for('admin.bookings_cancel') }}" class="d-flex gap-1">
+              {{ cancel_form.csrf_token if cancel_form else '' }}
+              <input type="hidden" name="booking_id" value="{{ b.id }}">
+              <input class="form-control form-control-sm" name="reason" placeholder="Motivo">
+              <button class="btn btn-sm btn-danger">Cancelar</button>
+            </form>
+            {% endif %}
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7" class="text-center">Nenhuma reserva.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

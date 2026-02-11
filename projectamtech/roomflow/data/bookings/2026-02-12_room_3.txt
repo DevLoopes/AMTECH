@@ -1,0 +1,25 @@
+{
+  "date": "2026-02-12",
+  "room_id": "room_3",
+  "items": [
+    {
+      "id": "book_0003",
+      "request_id": "req_0001",
+      "room_id": "room_3",
+      "date": "2026-02-12",
+      "start_time": "14:00",
+      "end_time": "15:00",
+      "user_id": "u_0003",
+      "username": "dev1",
+      "sector": "DESENVOLVIMENTO",
+      "role": "USER",
+      "reason": "Alinhamento produto",
+      "status": "ATIVA",
+      "is_emergency": false,
+      "emergency_reason": null,
+      "checkin_confirmed_at": null,
+      "created_at": "2026-02-11T12:09:23",
+      "updated_at": "2026-02-11T12:09:23"
+    }
+  ]
+}

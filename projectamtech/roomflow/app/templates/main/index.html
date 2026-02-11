@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="rf-card p-4">
+  <h1 class="h3 mb-3">RoomFlow - Gerenciador de Salas</h1>
+  <p class="text-muted">Controle online de solicitações, aprovação RH, emergência, bloqueios e check-in, com persistência 100% em arquivos TXT estruturados.</p>
+  {% if current_user %}
+  <a href="{{ url_for('main.rooms') }}" class="btn btn-rf">Ir para salas</a>
+  {% else %}
+  <a href="{{ url_for('auth.login') }}" class="btn btn-rf">Entrar</a>
+  {% endif %}
+</div>
+{% endblock %}

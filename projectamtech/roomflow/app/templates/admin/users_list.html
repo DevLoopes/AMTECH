@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-3">Usuários</h3>
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="page-card p-3">
+      <h5>Criar usuário</h5>
+      <form method="post">
+        {{ create_form.hidden_tag() }}
+        <div class="mb-2">{{ create_form.username.label(class='form-label') }}{{ create_form.username(class='form-control') }}</div>
+        <div class="mb-2">{{ create_form.sector.label(class='form-label') }}{{ create_form.sector(class='form-select') }}</div>
+        <div class="mb-2">{{ create_form.role.label(class='form-label') }}{{ create_form.role(class='form-select') }}</div>
+        <div class="mb-2">{{ create_form.password.label(class='form-label') }}{{ create_form.password(class='form-control') }}</div>
+        {{ create_form.submit(class='btn btn-primary') }}
+      </form>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="page-card p-3">
+      <table class="table table-sm">
+        <thead><tr><th>ID</th><th>Usuário</th><th>Role</th><th>Setor</th><th>Ações</th></tr></thead>
+        <tbody>
+          {% for u in users %}
+          <tr>
+            <td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.role }}</td><td>{{ u.sector }}</td>
+            <td>
+              <form method="post" action="{{ url_for('admin.users_update') }}" class="d-flex gap-1 mb-1">
+                {{ edit_form.csrf_token }}
+                <input type="hidden" name="edit-user_id" value="{{ u.id }}">
+                <select class="form-select form-select-sm" name="edit-sector">{% for c in edit_form.sector.choices %}<option value="{{ c[0] }}" {% if c[0]==u.sector %}selected{% endif %}>{{ c[1] }}</option>{% endfor %}</select>
+                <select class="form-select form-select-sm" name="edit-role">{% for c in edit_form.role.choices %}<option value="{{ c[0] }}" {% if c[0]==u.role %}selected{% endif %}>{{ c[1] }}</option>{% endfor %}</select>
+                <button class="btn btn-sm btn-outline-primary" type="submit">Salvar</button>
+              </form>
+              <form method="post" action="{{ url_for('admin.users_reset_password') }}" class="d-flex gap-1">
+                {{ reset_form.csrf_token }}
+                <input type="hidden" name="reset-user_id" value="{{ u.id }}">
+                <input class="form-control form-control-sm" name="reset-password" placeholder="Nova senha">
+                <button class="btn btn-sm btn-outline-danger" type="submit">Resetar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

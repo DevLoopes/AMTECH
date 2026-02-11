@@ -1,0 +1,8 @@
+{
+  "users": 7,
+  "bookings": 17,
+  "requests": 15,
+  "audit": 60,
+  "notifications": 24,
+  "blocks": 2
+}

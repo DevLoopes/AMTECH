@@ -1,0 +1,6 @@
+{
+  "business_start": "07:00",
+  "business_end": "18:30",
+  "checkin_grace_minutes": 15,
+  "user_cancel_limit_minutes": 30
+}

@@ -1,0 +1,23 @@
+{
+  "user_id": "u_0006",
+  "items": [
+    {
+      "id": "n_0002",
+      "user_id": "u_0006",
+      "type": "REQUEST_APPROVED",
+      "title": "Solicitação aprovada",
+      "message": "Reserva criada para 11/02/2026 08:30-19:00.",
+      "created_at": "2026-02-11T12:39:47",
+      "read_at": null
+    },
+    {
+      "id": "n_0003",
+      "user_id": "u_0006",
+      "type": "BOOKING_EXPIRED",
+      "title": "Reserva expirada",
+      "message": "Reserva em 11/02/2026 08:30-19:00 expirou por falta de check-in.",
+      "created_at": "2026-02-11T12:39:47",
+      "read_at": null
+    }
+  ]
+}

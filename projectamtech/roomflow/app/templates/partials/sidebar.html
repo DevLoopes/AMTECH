@@ -1,0 +1,20 @@
+<div class="list-group list-group-flush small">
+  {% if current_user.role in ['ADMIN', 'RH'] %}
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.requests_list') }}">Solicitações</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.bookings_list') }}">Reservas</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.emergency') }}">Emergência</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.blocks') }}">Bloqueios</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.logs') }}">Logs</a>
+  {% if current_user.role == 'ADMIN' %}
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.users_list') }}">Usuários</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('admin.sectors_list') }}">Setores</a>
+  {% endif %}
+  {% else %}
+  <a class="list-group-item list-group-item-action" href="{{ url_for('main.my_dashboard') }}">Dashboard</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('main.rooms') }}">Salas</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('main.my_requests') }}">Minhas solicitações</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('main.my_bookings') }}">Minhas reservas</a>
+  <a class="list-group-item list-group-item-action" href="{{ url_for('main.my_notifications') }}">Notificações</a>
+  {% endif %}
+</div>

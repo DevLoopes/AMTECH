@@ -1,0 +1,5 @@
+{
+  "id": "room_3",
+  "name": "Sala 3",
+  "capacity_label": "Média"
+}

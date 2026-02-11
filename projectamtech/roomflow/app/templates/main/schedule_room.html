@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="rf-card p-3 mb-3">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <h2 class="h5 mb-0">Agenda - {{ room.name }} ({{ room.capacity_label }})</h2>
+    <div class="d-flex gap-2">
+      <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('main.room_schedule', room_id=room.id, date=prev_date_br, duration=duration) }}">Ontem</a>
+      <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('main.room_schedule', room_id=room.id, date=next_date_br, duration=duration) }}">Amanhã</a>
+      <a class="btn btn-sm btn-rf" href="{{ url_for('main.room_request', room_id=room.id, date=date_br) }}">Solicitar horário</a>
+    </div>
+  </div>
+  <form class="row g-2 mt-2" method="get">
+    <div class="col-md-3">
+      <label class="form-label">Data (DD/MM/AAAA)</label>
+      <input class="form-control" name="date" value="{{ date_br }}">
+      {% if weekday_pt(date_br) %}
+      <div class="form-text">Dia: <strong>{{ weekday_pt(date_br) }}</strong></div>
+      {% endif %}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Duração sugestão (min)</label>
+      <select class="form-select" name="duration">
+        {% for m in [30,60,90] %}<option value="{{ m }}" {% if duration == m %}selected{% endif %}>{{ m }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Filtro status</label>
+      <select class="form-select" name="status">
+        <option value="">Todos</option>
+        <option value="free" {% if filter_status=='free' %}selected{% endif %}>Livre</option>
+        <option value="reserved" {% if filter_status=='reserved' %}selected{% endif %}>Reservado</option>
+        <option value="mine" {% if filter_status=='mine' %}selected{% endif %}>Minha reserva</option>
+        <option value="blocked" {% if filter_status=='blocked' %}selected{% endif %}>Bloqueado</option>
+      </select>
+    </div>
+    <div class="col-md-3 d-flex align-items-end"><button class="btn btn-primary w-100">Aplicar</button></div>
+  </form>
+</div>
+
+<div class="rf-card p-3 mb-3">
+  <h3 class="h6">Tabela de horários</h3>
+  <div class="table-responsive">
+    <table class="table table-sm align-middle">
+      <thead><tr><th>Horário</th><th>Status</th><th>Detalhe</th></tr></thead>
+      <tbody>
+        {% for row in schedule %}
+        <tr>
+          <td>{{ row.time }}</td>
+          <td><span class="badge text-bg-{{ row.badge }}">{{ row.status_label }}</span></td>
+          <td>{{ row.detail }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="rf-card p-3">
+  <h3 class="h6">Sugestões de horários livres</h3>
+  <div class="row g-2">
+    {% for s in suggestions %}
+    <div class="col-md-4">
+      <div class="border rounded p-2 d-flex justify-content-between align-items-center">
+        <span>{{ s.start }} - {{ s.end }}</span>
+        <a class="btn btn-sm btn-outline-primary" href="{{ url_for('main.room_request', room_id=room.id, date=date_br, start=s.start, end=s.end) }}">Usar</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-12 text-muted">Sem sugestões para a duração escolhida.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

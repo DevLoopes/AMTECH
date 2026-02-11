@@ -1,0 +1,40 @@
+:root {
+  --rf-bg: #f4f7fb;
+  --rf-surface: #ffffff;
+  --rf-primary: #0f4c81;
+  --rf-primary-dark: #0b3a62;
+}
+
+body {
+  background: radial-gradient(circle at top right, #dce8f6 0%, var(--rf-bg) 35%, #eef3f8 100%);
+  min-height: 100vh;
+}
+
+.bg-rf-primary {
+  background: linear-gradient(90deg, var(--rf-primary), var(--rf-primary-dark));
+}
+
+.rf-card {
+  background: var(--rf-surface);
+  border: 1px solid #dbe5f0;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(11, 58, 98, 0.06);
+}
+
+.btn-rf {
+  background: var(--rf-primary);
+  color: #fff;
+  border-color: var(--rf-primary);
+}
+
+.btn-rf:hover {
+  background: var(--rf-primary-dark);
+  color: #fff;
+  border-color: var(--rf-primary-dark);
+}
+
+.admin-sidebar {
+  min-height: calc(100vh - 56px);
+  background: #f8fbff;
+  border-right: 1px solid #dce5ef;
+}

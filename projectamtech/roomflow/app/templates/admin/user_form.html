@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h5 mb-3">{% if user %}Editar Usuário{% else %}Novo Usuário{% endif %}</h2>
+<div class="rf-card p-3">
+  <form method="post" class="row g-2">
+    {% if not user %}
+    <div class="col-md-4"><label class="form-label">Username</label><input class="form-control" name="username" required></div>
+    <div class="col-md-4"><label class="form-label">Senha inicial</label><input class="form-control" name="password" required></div>
+    {% else %}
+    <div class="col-md-4"><label class="form-label">Username</label><input class="form-control" value="{{ user.username }}" disabled></div>
+    {% endif %}
+    <div class="col-md-4"><label class="form-label">Role</label><select class="form-select" name="role" required>{% for r in ['ADMIN','RH','USER'] %}<option value="{{ r }}" {% if user and user.role == r %}selected{% endif %}>{{ r }}</option>{% endfor %}</select></div>
+    <div class="col-md-4"><label class="form-label">Setor</label><select class="form-select" name="sector" required>{% for s in sectors %}<option value="{{ s }}" {% if user and user.sector == s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+    <div class="col-12 d-flex gap-2"><button class="btn btn-rf">Salvar</button><a class="btn btn-outline-secondary" href="{{ url_for('admin.users_list') }}">Voltar</a></div>
+  </form>
+</div>
+{% endblock %}

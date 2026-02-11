@@ -1,0 +1,27 @@
+{
+  "room_id": "room_1",
+  "items": [
+    {
+      "id": "blk_0001",
+      "room_id": "room_1",
+      "date": null,
+      "weekday": null,
+      "start": "07:00",
+      "end": "09:00",
+      "reason": "Aula de inglês",
+      "created_by": "u_0002",
+      "status": "ATIVO",
+      "start_date": "2026-02-11",
+      "end_date": "2026-12-23",
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "created_at": "2026-02-11T13:32:07",
+      "updated_at": "2026-02-11T13:32:07"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h5 mb-3">Logs de Auditoria</h2>
+<div class="rf-card p-3 mb-3">
+  <form method="get" class="row g-2">
+    <div class="col-md-3"><label class="form-label">Mês (YYYY-MM)</label><input class="form-control" name="month" value="{{ month }}"></div>
+    <div class="col-md-4"><label class="form-label">Ação</label><input class="form-control" name="action" value="{{ action }}" placeholder="ex: REQUEST_APPROVED"></div>
+    <div class="col-md-2 d-flex align-items-end"><button class="btn btn-primary w-100">Filtrar</button></div>
+  </form>
+</div>
+<div class="rf-card p-3">
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead><tr><th>Data/Hora</th><th>Ator</th><th>Ação</th><th>Alvo</th><th>Detalhes</th></tr></thead>
+      <tbody>
+        {% for ev in events %}
+        <tr>
+          <td>{{ ev.created_at }}</td>
+          <td>{{ ev.actor_username }} ({{ ev.actor_user_id }})</td>
+          <td>{{ ev.action }}</td>
+          <td>{{ ev.target_type }} / {{ ev.target_id }}</td>
+          <td><code>{{ ev.details }}</code></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" class="text-center text-muted">Sem eventos.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

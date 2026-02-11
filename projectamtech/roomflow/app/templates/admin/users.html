@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="h5 mb-0">Usuários</h2>
+  <a class="btn btn-rf" href="{{ url_for('admin.users_new') }}">Novo usuário</a>
+</div>
+<div class="rf-card p-3">
+  <table class="table table-sm align-middle">
+    <thead><tr><th>ID</th><th>Usuário</th><th>Role</th><th>Setor</th><th>Ações</th></tr></thead>
+    <tbody>
+      {% for u in users %}
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.sector }}</td>
+        <td>
+          <a class="btn btn-sm btn-outline-primary" href="{{ url_for('admin.users_edit', user_id=u.id) }}">Editar</a>
+          <form class="d-inline-flex gap-1" method="post" action="{{ url_for('admin.users_reset_password', user_id=u.id) }}">
+            <input class="form-control form-control-sm" name="password" placeholder="Nova senha">
+            <button class="btn btn-sm btn-outline-danger">Resetar</button>
+          </form>
+          <form class="d-inline" method="post" action="{{ url_for('admin.users_delete', user_id=u.id) }}" onsubmit="return confirm('Excluir usuário {{ u.username }}?');">
+            <button class="btn btn-sm btn-danger">Excluir</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

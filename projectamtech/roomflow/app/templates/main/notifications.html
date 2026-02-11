@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="h5 mb-0">Minhas Notificações</h2>
+  <form method="post" action="{{ url_for('main.my_notifications_read_all') }}"><button class="btn btn-sm btn-outline-primary">Marcar tudo como lida</button></form>
+</div>
+<div class="rf-card p-3">
+  <table class="table table-sm">
+    <thead><tr><th>Quando</th><th>Título</th><th>Mensagem</th><th>Status</th><th>Ação</th></tr></thead>
+    <tbody>
+      {% for n in notifications %}
+      <tr>
+        <td>{{ n.created_at }}</td>
+        <td>{{ n.title }}</td>
+        <td>{{ n.message }}</td>
+        <td>{% if n.read_at %}<span class="badge text-bg-success">Lida</span>{% else %}<span class="badge text-bg-warning">Não lida</span>{% endif %}</td>
+        <td>
+          {% if not n.read_at %}
+          <form method="post" action="{{ url_for('main.my_notification_read', notification_id=n.id) }}"><button class="btn btn-sm btn-outline-secondary">Marcar lida</button></form>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="text-center text-muted">Nenhuma notificação.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

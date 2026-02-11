@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="page-card p-4">
+      <h4 class="mb-3">Agendamento de Emergência (RH/Admin)</h4>
+      <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="row g-2">
+          <div class="col-md-6">{{ form.room_id.label(class='form-label') }}{{ form.room_id(class='form-select') }}</div>
+          <div class="col-md-3">{{ form.date.label(class='form-label') }}{{ form.date(class='form-control') }}</div>
+          <div class="col-md-3">{{ form.start_time.label(class='form-label') }}{{ form.start_time(class='form-control') }}</div>
+          <div class="col-md-3">{{ form.end_time.label(class='form-label') }}{{ form.end_time(class='form-control') }}</div>
+          <div class="col-md-9">{{ form.reason.label(class='form-label') }}{{ form.reason(class='form-control', rows=3) }}</div>
+        </div>
+        <div class="mt-3">{{ form.submit(class='btn btn-warning') }}</div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

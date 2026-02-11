@@ -1,0 +1,771 @@
+{
+  "month": "2026-02",
+  "items": [
+    {
+      "id": "aud_0001",
+      "ts": "2026-02-11T12:01:21",
+      "actor_id": "system",
+      "actor_username": "system",
+      "event_type": "USER_CREATED",
+      "payload": {
+        "user_id": "u_0001",
+        "username": "admin",
+        "role": "ADMIN",
+        "sector": "ADMIN"
+      }
+    },
+    {
+      "id": "aud_0002",
+      "ts": "2026-02-11T12:01:21",
+      "actor_id": "system",
+      "actor_username": "system",
+      "event_type": "USER_CREATED",
+      "payload": {
+        "user_id": "u_0002",
+        "username": "rh",
+        "role": "RH",
+        "sector": "RH"
+      }
+    },
+    {
+      "id": "aud_0003",
+      "ts": "2026-02-11T12:01:21",
+      "actor_id": "system",
+      "actor_username": "system",
+      "event_type": "USER_CREATED",
+      "payload": {
+        "user_id": "u_0003",
+        "username": "dev1",
+        "role": "USER",
+        "sector": "DESENVOLVIMENTO"
+      }
+    },
+    {
+      "id": "aud_0004",
+      "ts": "2026-02-11T12:01:21",
+      "actor_id": "system",
+      "actor_username": "system",
+      "event_type": "USER_CREATED",
+      "payload": {
+        "user_id": "u_0004",
+        "username": "eng1",
+        "role": "USER",
+        "sector": "ENGENHARIA"
+      }
+    },
+    {
+      "id": "aud_0005",
+      "ts": "2026-02-11T12:01:21",
+      "actor_id": "u_0003",
+      "actor_username": "dev1",
+      "event_type": "REQUEST_CREATED",
+      "payload": {
+        "id": "req_0001",
+        "room_id": "room_3",
+        "date": "2026-02-12",
+        "start_time": "14:00",
+        "end_time": "15:00",
+        "user_id": "u_0003",
+        "username": "dev1",
+        "sector": "DESENVOLVIMENTO",
+        "reason": "Alinhamento produto",
+        "status": "PENDENTE",
+        "is_conflicting_on_create": false,
+        "created_at": "2026-02-11T12:01:21",
+        "updated_at": "2026-02-11T12:01:21",
+        "recurring_group": null
+      }
+    },
+    {
+      "id": "aud_0006",
+      "ts": "2026-02-11T12:02:32",
+      "actor_id": "system",
+      "actor_username": "system",
+      "event_type": "BOOKINGS_EXPIRED_AUTO",
+      "payload": {
+        "booking_ids": [
+          "book_0001",
+          "book_0002"
+        ]
+      }
+    },
+    {
+      "id": "aud_0007",
+      "ts": "2026-02-11T12:03:29",
+      "actor_id": "u_0001",
+      "actor_username": "admin",
+      "event_type": "USER_CREATED",
+      "payload": {
+        "user_id": "u_0005",
+        "username": "renato.vieira",
+        "role": "USER",
+        "sector": "TI"
+      }
+    },
+    {
+      "id": "aud_0008",
+      "ts": "2026-02-11T12:08:16",
+      "actor_id": "u_0005",
+      "actor_username": "renato.vieira",
+      "event_type": "REQUEST_CREATED",
+      "payload": {
+        "id": "req_0002",
+        "room_id": "room_1",
+        "date": "2026-02-11",
+        "start_time": "12:11",
+        "end_time": "12:49",
+        "user_id": "u_0005",
+        "username": "renato.vieira",
+        "sector": "TI",
+        "reason": "sdfgasgasdgasgasdffgs",
+        "status": "PENDENTE",
+        "is_conflicting_on_create": false,
+        "created_at": "2026-02-11T12:08:16",
+        "updated_at": "2026-02-11T12:08:16",
+        "recurring_group": null
+      }
+    },
+    {
+      "id": "aud_0009",
+      "ts": "2026-02-11T12:09:23",
+      "actor_id": "u_0001",
+      "actor_username": "admin",
+      "event_type": "REQUEST_APPROVED",
+      "payload": {
+        "request_id": "req_0001",
+        "booking_id": "book_0003"
+      }
+    },
+    {
+      "id": "aud_0010",
+      "ts": "2026-02-11T12:09:24",
+      "actor_id": "u_0001",
+      "actor_username": "admin",
+      "event_type": "REQUEST_APPROVED",
+      "payload": {
+        "request_id": "req_0002",
+        "booking_id": "book_0004"
+      }
+    },
+    {
+      "id": "aud_0011",
+      "ts": "2026-02-11T12:10:14",
+      "actor_id": "u_0001",
+      "actor_username": "admin",
+      "event_type": "PASSWORD_RESET",
+      "payload": {
+        "user_id": "u_0002"
+      }
+    },
+    {
+      "id": "aud_0012",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "book_0004",
+      "details": {},
+      "created_at": "2026-02-11T12:29:12"
+    },
+    {
+      "id": "aud_0013",
+      "actor_user_id": "u_0005",
+      "actor_username": "renato.vieira",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0003",
+      "details": {
+        "room_id": "room_1",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T12:32:17"
+    },
+    {
+      "id": "aud_0014",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "PASSWORD_RESET",
+      "target_type": "USER",
+      "target_id": "u_0001",
+      "details": {},
+      "created_at": "2026-02-11T12:34:12"
+    },
+    {
+      "id": "aud_0015",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "PASSWORD_RESET",
+      "target_type": "USER",
+      "target_id": "u_0002",
+      "details": {},
+      "created_at": "2026-02-11T12:34:18"
+    },
+    {
+      "id": "aud_0016",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "PASSWORD_RESET",
+      "target_type": "USER",
+      "target_id": "u_0003",
+      "details": {},
+      "created_at": "2026-02-11T12:34:23"
+    },
+    {
+      "id": "aud_0017",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "PASSWORD_RESET",
+      "target_type": "USER",
+      "target_id": "u_0004",
+      "details": {},
+      "created_at": "2026-02-11T12:34:27"
+    },
+    {
+      "id": "aud_0018",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "PASSWORD_RESET",
+      "target_type": "USER",
+      "target_id": "u_0005",
+      "details": {},
+      "created_at": "2026-02-11T12:34:30"
+    },
+    {
+      "id": "aud_0019",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "USER_CREATED",
+      "target_type": "USER",
+      "target_id": "u_0006",
+      "details": {
+        "username": "weverton.blanco",
+        "role": "USER",
+        "sector": "TI"
+      },
+      "created_at": "2026-02-11T12:34:58"
+    },
+    {
+      "id": "aud_0020",
+      "actor_user_id": "u_0006",
+      "actor_username": "weverton.blanco",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0004",
+      "details": {
+        "room_id": "room_2",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T12:36:10"
+    },
+    {
+      "id": "aud_0021",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0004",
+      "details": {
+        "booking_id": "b_0005"
+      },
+      "created_at": "2026-02-11T12:39:47"
+    },
+    {
+      "id": "aud_0022",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0005",
+      "details": {},
+      "created_at": "2026-02-11T12:39:47"
+    },
+    {
+      "id": "aud_0023",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0003",
+      "details": {
+        "booking_id": "b_0006"
+      },
+      "created_at": "2026-02-11T12:39:48"
+    },
+    {
+      "id": "aud_0024",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0006",
+      "details": {},
+      "created_at": "2026-02-11T12:39:48"
+    },
+    {
+      "id": "aud_0025",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "USER_CREATED",
+      "target_type": "USER",
+      "target_id": "u_0007",
+      "details": {
+        "username": "alex.simas",
+        "role": "USER",
+        "sector": "DESENVOLVIMENTO"
+      },
+      "created_at": "2026-02-11T12:45:31"
+    },
+    {
+      "id": "aud_0026",
+      "actor_user_id": "u_0007",
+      "actor_username": "alex.simas",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0005",
+      "details": {
+        "room_id": "room_2",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T12:48:03"
+    },
+    {
+      "id": "aud_0027",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0005",
+      "details": {
+        "booking_id": "b_0007"
+      },
+      "created_at": "2026-02-11T12:48:40"
+    },
+    {
+      "id": "aud_0028",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0007",
+      "details": {},
+      "created_at": "2026-02-11T12:48:40"
+    },
+    {
+      "id": "aud_0029",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0006",
+      "details": {
+        "room_id": "room_2",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T12:54:25"
+    },
+    {
+      "id": "aud_0030",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0006",
+      "details": {
+        "booking_id": "b_0008"
+      },
+      "created_at": "2026-02-11T12:54:36"
+    },
+    {
+      "id": "aud_0031",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0008",
+      "details": {},
+      "created_at": "2026-02-11T12:54:36"
+    },
+    {
+      "id": "aud_0032",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0007",
+      "details": {
+        "room_id": "room_1",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T12:54:54"
+    },
+    {
+      "id": "aud_0033",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0007",
+      "details": {
+        "booking_id": "b_0009"
+      },
+      "created_at": "2026-02-11T12:54:57"
+    },
+    {
+      "id": "aud_0034",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0009",
+      "details": {},
+      "created_at": "2026-02-11T12:54:57"
+    },
+    {
+      "id": "aud_0035",
+      "actor_user_id": "u_0005",
+      "actor_username": "renato.vieira",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0008",
+      "details": {
+        "room_id": "room_2",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:00:03"
+    },
+    {
+      "id": "aud_0036",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0008",
+      "details": {
+        "booking_id": "b_0010"
+      },
+      "created_at": "2026-02-11T13:00:43"
+    },
+    {
+      "id": "aud_0037",
+      "actor_user_id": "u_0005",
+      "actor_username": "renato.vieira",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0009",
+      "details": {
+        "room_id": "room_1",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:02:13"
+    },
+    {
+      "id": "aud_0038",
+      "actor_user_id": "u_0005",
+      "actor_username": "renato.vieira",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0010",
+      "details": {
+        "room_id": "room_2",
+        "date": "2026-02-09"
+      },
+      "created_at": "2026-02-11T13:02:58"
+    },
+    {
+      "id": "aud_0039",
+      "actor_user_id": "u_0005",
+      "actor_username": "renato.vieira",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0011",
+      "details": {
+        "room_id": "room_1",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:03:24"
+    },
+    {
+      "id": "aud_0040",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0010",
+      "details": {
+        "booking_id": "b_0011"
+      },
+      "created_at": "2026-02-11T13:03:39"
+    },
+    {
+      "id": "aud_0041",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0011",
+      "details": {},
+      "created_at": "2026-02-11T13:03:39"
+    },
+    {
+      "id": "aud_0042",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_DENIED",
+      "target_type": "REQUEST",
+      "target_id": "r_0011",
+      "details": {
+        "reason": ""
+      },
+      "created_at": "2026-02-11T13:25:08"
+    },
+    {
+      "id": "aud_0043",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "REQUEST_DENIED",
+      "target_type": "REQUEST",
+      "target_id": "r_0009",
+      "details": {
+        "reason": ""
+      },
+      "created_at": "2026-02-11T13:25:09"
+    },
+    {
+      "id": "aud_0044",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "BLOCK_CREATED",
+      "target_type": "BLOCK",
+      "target_id": "blk_0001",
+      "details": {
+        "room_id": "room_1",
+        "start_date": "2026-02-11",
+        "end_date": "2026-12-23",
+        "weekdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "created_at": "2026-02-11T13:32:07"
+    },
+    {
+      "id": "aud_0045",
+      "actor_user_id": "u_0002",
+      "actor_username": "rh",
+      "action": "BLOCK_CREATED",
+      "target_type": "BLOCK",
+      "target_id": "blk_0002",
+      "details": {
+        "room_id": "room_2",
+        "start_date": "2026-02-11",
+        "end_date": "2026-12-23",
+        "weekdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "created_at": "2026-02-11T13:38:26"
+    },
+    {
+      "id": "aud_0046",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0010",
+      "details": {},
+      "created_at": "2026-02-11T13:45:04"
+    },
+    {
+      "id": "aud_0047",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0012",
+      "details": {
+        "room_id": "room_1",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:49:33"
+    },
+    {
+      "id": "aud_0048",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0012",
+      "details": {
+        "booking_id": "b_0012"
+      },
+      "created_at": "2026-02-11T13:50:08"
+    },
+    {
+      "id": "aud_0049",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0013",
+      "details": {
+        "room_id": "room_1",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:51:07"
+    },
+    {
+      "id": "aud_0050",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0013",
+      "details": {
+        "booking_id": "b_0013"
+      },
+      "created_at": "2026-02-11T13:51:10"
+    },
+    {
+      "id": "aud_0051",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0014",
+      "details": {
+        "room_id": "room_3",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:52:25"
+    },
+    {
+      "id": "aud_0052",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_APPROVED",
+      "target_type": "REQUEST",
+      "target_id": "r_0014",
+      "details": {
+        "booking_id": "b_0014"
+      },
+      "created_at": "2026-02-11T13:52:28"
+    },
+    {
+      "id": "aud_0053",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_CREATED",
+      "target_type": "REQUEST",
+      "target_id": "r_0015",
+      "details": {
+        "room_id": "room_3",
+        "date": "2026-02-11"
+      },
+      "created_at": "2026-02-11T13:53:01"
+    },
+    {
+      "id": "aud_0054",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "REQUEST_DENIED",
+      "target_type": "REQUEST",
+      "target_id": "r_0015",
+      "details": {
+        "reason": ""
+      },
+      "created_at": "2026-02-11T13:53:11"
+    },
+    {
+      "id": "aud_0055",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0012",
+      "details": {},
+      "created_at": "2026-02-11T14:00:43"
+    },
+    {
+      "id": "aud_0056",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "SECTOR_MIGRATION",
+      "target_type": "SECTOR",
+      "target_id": "ADMIN",
+      "details": {
+        "migrated_users": [
+          "u_0001"
+        ],
+        "to": "RH"
+      },
+      "created_at": "2026-02-11T14:01:55"
+    },
+    {
+      "id": "aud_0057",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "EMERGENCY_BOOKING_CREATED",
+      "target_type": "BOOKING",
+      "target_id": "b_0015",
+      "details": {
+        "impacted": [
+          "b_0013"
+        ],
+        "room_id": "room_1",
+        "date": "2026-02-11",
+        "start": "13:00",
+        "end": "14:40"
+      },
+      "created_at": "2026-02-11T14:13:13"
+    },
+    {
+      "id": "aud_0058",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "EMERGENCY_BOOKING_CREATED",
+      "target_type": "BOOKING",
+      "target_id": "b_0016",
+      "details": {
+        "impacted": [],
+        "room_id": "room_2",
+        "date": "2026-02-11",
+        "start": "10:00",
+        "end": "14:40"
+      },
+      "created_at": "2026-02-11T14:14:38"
+    },
+    {
+      "id": "aud_0059",
+      "actor_user_id": "system",
+      "actor_username": "system",
+      "action": "BOOKING_EXPIRED_AUTO",
+      "target_type": "BOOKING",
+      "target_id": "b_0014",
+      "details": {},
+      "created_at": "2026-02-11T14:15:25"
+    },
+    {
+      "id": "aud_0060",
+      "actor_user_id": "u_0001",
+      "actor_username": "admin",
+      "action": "EMERGENCY_BOOKING_CREATED",
+      "target_type": "BOOKING",
+      "target_id": "b_0017",
+      "details": {
+        "impacted": [],
+        "room_id": "room_3",
+        "date": "2026-02-11",
+        "start": "10:00",
+        "end": "13:00"
+      },
+      "created_at": "2026-02-11T14:15:25"
+    }
+  ]
+}

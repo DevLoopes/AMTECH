@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-3">{% if my_view %}Minhas Solicitações{% else %}Solicitações Pendentes{% endif %}</h3>
+<div class="page-card p-3">
+  {% if not my_view %}
+  <form method="post" class="row g-2 mb-3">
+    {{ decision_form.hidden_tag() if decision_form else '' }}
+    <div class="col-md-8"><input class="form-control" name="request_ids" placeholder="IDs separados por vírgula (req_0001,req_0002)"></div>
+    <div class="col-md-2"><input class="form-control" name="reason" placeholder="Motivo"></div>
+    <div class="col-md-1"><button class="btn btn-success w-100" name="action" value="approve_batch">Aprovar</button></div>
+    <div class="col-md-1"><button class="btn btn-danger w-100" name="action" value="deny_batch">Recusar</button></div>
+  </form>
+  {% endif %}
+
+  <table class="table table-sm table-striped">
+    <thead><tr><th>ID</th><th>Sala</th><th>Data</th><th>Hora</th><th>Usuário</th><th>Status</th><th>Ações</th></tr></thead>
+    <tbody>
+      {% for r in requests %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.room_id }}</td>
+        <td>{{ r.date }}</td>
+        <td>{{ r.start_time }} - {{ r.end_time }}</td>
+        <td>{{ r.username }} ({{ r.sector }})</td>
+        <td>{{ r.status }}</td>
+        <td>
+          {% if my_view %}
+            {% if r.status == 'PENDENTE' %}
+            <form method="post" action="{{ url_for('main.cancel_my_request', request_id=r.id) }}">
+              <button class="btn btn-sm btn-outline-danger">Cancelar</button>
+            </form>
+            {% endif %}
+          {% else %}
+            <div class="d-flex gap-1">
+              <form method="post"><input type="hidden" name="request_id" value="{{ r.id }}"><button class="btn btn-sm btn-success" name="action" value="approve_one">Aprovar</button></form>
+              <form method="post" class="d-flex gap-1"><input type="hidden" name="request_id" value="{{ r.id }}"><input class="form-control form-control-sm" name="reason" placeholder="Motivo"><button class="btn btn-sm btn-danger" name="action" value="deny_one">Recusar</button></form>
+            </div>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7" class="text-center">Nenhuma solicitação encontrada.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

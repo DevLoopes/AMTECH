@@ -1,0 +1,16 @@
+{
+  "id": "u_0004",
+  "username": "eng1",
+  "role": "USER",
+  "sector": "ENGENHARIA",
+  "password": {
+    "algo": "sha256",
+    "iterations": 220000,
+    "salt": "Vl/EhdgWOOzeZ+YPI9fy0A==",
+    "hash": "IsqX81RrOW7MWxuluMZ/YIyVeKz45c/+lWea51pCnbQ="
+  },
+  "created_at": "",
+  "updated_at": "2026-02-11T12:34:27",
+  "must_change_password": true,
+  "is_active": true
+}

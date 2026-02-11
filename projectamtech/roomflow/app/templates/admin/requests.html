@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h5 mb-3">Solicitações</h2>
+<div class="rf-card p-3 mb-3">
+  <form class="row g-2" method="get">
+    <div class="col-md-2"><label class="form-label">Sala</label><select class="form-select" name="room_id"><option value="">Todas</option>{% for room in rooms %}<option value="{{ room.id }}" {% if request.args.get('room_id')==room.id %}selected{% endif %}>{{ room.name }}</option>{% endfor %}</select></div>
+    <div class="col-md-2"><label class="form-label">Data</label><input class="form-control" name="date" value="{{ request.args.get('date','') }}" placeholder="DD/MM/AAAA"></div>
+    <div class="col-md-2"><label class="form-label">Setor</label><select class="form-select" name="sector"><option value="">Todos</option>{% for s in sectors %}<option value="{{ s }}" {% if request.args.get('sector')==s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+    <div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option value="">Todos</option>{% for s in ['PENDENTE','APROVADA','NEGADA','CANCELADA'] %}<option value="{{ s }}" {% if request.args.get('status')==s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
+    <div class="col-md-2"><label class="form-label">Conflito</label><select class="form-select" name="conflict"><option value="">Todos</option><option value="yes" {% if request.args.get('conflict')=='yes' %}selected{% endif %}>Sim</option><option value="no" {% if request.args.get('conflict')=='no' %}selected{% endif %}>Não</option></select></div>
+    <div class="col-md-2 d-flex align-items-end"><button class="btn btn-primary w-100">Filtrar</button></div>
+  </form>
+</div>
+
+<div class="rf-card p-3">
+  <table class="table table-sm align-middle">
+    <thead><tr><th>ID</th><th>Grupo</th><th>Solicitante</th><th>Sala</th><th>Data</th><th>Hora</th><th>Setor</th><th>Status</th><th>Ações</th></tr></thead>
+    <tbody>
+      {% for r in requests %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{% if r.recurrence_group_id %}<code>{{ r.recurrence_group_id }}</code>{% else %}-{% endif %}</td>
+        <td>{{ r.username }}</td>
+        <td>{{ r.room_id }}</td>
+        <td>{{ format_date_br(r.date) }}</td>
+        <td>{{ r.start }}-{{ r.end }}</td>
+        <td>{{ r.sector }}</td>
+        <td>
+          <span class="badge text-bg-secondary">{{ r.status }}</span>
+          {% if r.has_conflict %}<span class="badge text-bg-warning">Conflito</span>{% endif %}
+        </td>
+        <td>
+          {% if r.status == 'PENDENTE' %}
+          <div class="d-flex gap-1">
+            <form method="post" action="{{ url_for('admin.request_approve', request_id=r.id) }}"><button class="btn btn-sm btn-success">Aprovar</button></form>
+            <form method="post" action="{{ url_for('admin.request_deny', request_id=r.id) }}" class="d-flex gap-1"><input class="form-control form-control-sm" name="reason" placeholder="Motivo"><button class="btn btn-sm btn-danger">Negar</button></form>
+          </div>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="9" class="text-center text-muted">Sem solicitações.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <hr>
+  <h3 class="h6">Ações em lote por recorrência</h3>
+  <div class="d-flex flex-wrap gap-2">
+    {% for group_id, items in groups.items() if group_id.startswith('rec_') %}
+    <div class="border rounded p-2">
+      <div><code>{{ group_id }}</code> ({{ items|length }} itens)</div>
+      <div class="d-flex gap-1 mt-1">
+        <form method="post" action="{{ url_for('admin.request_group_approve', recurrence_group_id=group_id) }}"><button class="btn btn-sm btn-outline-success">Aprovar grupo</button></form>
+        <form method="post" action="{{ url_for('admin.request_group_deny', recurrence_group_id=group_id) }}" class="d-flex gap-1"><input class="form-control form-control-sm" name="reason" placeholder="Motivo"><button class="btn btn-sm btn-outline-danger">Negar grupo</button></form>
+      </div>
+    </div>
+    {% else %}
+    <div class="text-muted">Sem grupos recorrentes pendentes.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

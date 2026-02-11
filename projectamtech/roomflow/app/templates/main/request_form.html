@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="rf-card p-3 mb-3">
+  <h2 class="h5">Solicitar horário - {{ room.name }}</h2>
+  <form method="post" class="row g-2">
+    <div class="col-md-3">
+      <label class="form-label">Data (DD/MM/AAAA)</label>
+      <input class="form-control" name="date" value="{{ date_br }}" required>
+      {% if weekday_pt(date_br) %}
+      <div class="form-text">Dia: <strong>{{ weekday_pt(date_br) }}</strong></div>
+      {% endif %}
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Início</label>
+      <select class="form-select" name="start" required>
+        <option value="">Selecione</option>
+        {% for t in time_options %}
+        <option value="{{ t }}" {% if start==t %}selected{% endif %} {% if t in unavailable_times %}disabled{% endif %}>
+          {{ t }}{% if t in blocked_times %} (bloqueado){% elif t in reserved_times %} (reservado){% endif %}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Fim</label>
+      <select class="form-select" name="end" required>
+        <option value="">Selecione</option>
+        {% for t in time_options %}
+        <option value="{{ t }}" {% if end==t %}selected{% endif %} {% if t in unavailable_times %}disabled{% endif %}>
+          {{ t }}{% if t in blocked_times %} (bloqueado){% elif t in reserved_times %} (reservado){% endif %}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Recorrência semanal</label>
+      <div class="input-group">
+        <span class="input-group-text"><input class="form-check-input mt-0" type="checkbox" name="use_recurring"></span>
+        <input class="form-control" type="number" min="0" name="recurring_weeks" value="{{ recurring_weeks or 0 }}" placeholder="N semanas">
+      </div>
+    </div>
+    <div class="col-12">
+      <label class="form-label">Motivo</label>
+      <textarea class="form-control" rows="2" name="reason">{{ reason }}</textarea>
+    </div>
+    <div class="col-12 d-flex gap-2 mt-2">
+      <button class="btn btn-rf" type="submit">Enviar solicitação</button>
+      <a class="btn btn-outline-secondary" href="{{ url_for('main.room_schedule', room_id=room.id, date=date_br) }}">Voltar agenda</a>
+    </div>
+  </form>
+</div>
+
+{% if semaphore %}
+<div class="rf-card p-3">
+  <h3 class="h6 mb-2">Semáforo de conflito</h3>
+  {% if semaphore.color == 'verde' %}
+    <span class="badge text-bg-success">Verde</span>
+  {% elif semaphore.color == 'amarelo' %}
+    <span class="badge text-bg-warning">Amarelo</span>
+  {% else %}
+    <span class="badge text-bg-danger">Vermelho</span>
+  {% endif %}
+  <p class="mb-0 mt-2">{{ semaphore.message }}</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Agenda diária - {{ room.name }} ({{ date }})</h3>
+<div class="page-card p-3">
+  <table class="table table-bordered table-sm">
+    <thead><tr><th>Início</th><th>Fim</th><th>Status</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      {% for r in rows %}
+      <tr><td>{{ r.start }}</td><td>{{ r.end }}</td><td>{{ r.status }}</td><td>{{ r.label }}</td></tr>
+      {% else %}
+      <tr><td colspan="4" class="text-center">Sem reservas para o dia.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

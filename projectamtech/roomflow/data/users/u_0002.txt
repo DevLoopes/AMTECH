@@ -1,0 +1,16 @@
+{
+  "id": "u_0002",
+  "username": "rh",
+  "role": "RH",
+  "sector": "RH",
+  "password": {
+    "algo": "sha256",
+    "iterations": 220000,
+    "salt": "foJ0fzGGUXh+f6+wAmOIsQ==",
+    "hash": "lXly42A2Y4A/a0yV349RhdPW7hxAE31FZVkD+lTN5tQ="
+  },
+  "created_at": "",
+  "updated_at": "2026-02-11T12:34:18",
+  "must_change_password": true,
+  "is_active": true
+}

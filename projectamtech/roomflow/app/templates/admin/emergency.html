@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h5 mb-3">Reserva de Emergência</h2>
+<div class="rf-card p-3 mb-3">
+  <form method="post" class="row g-2">
+    <div class="col-md-3"><label class="form-label">Sala</label><select class="form-select" name="room_id" required>{% for room in rooms %}<option value="{{ room.id }}" {% if request.form.get('room_id')==room.id %}selected{% endif %}>{{ room.name }}</option>{% endfor %}</select></div>
+    <div class="col-md-2">
+      <label class="form-label">Data</label>
+      <input class="form-control" name="date" value="{{ date_br }}" placeholder="DD/MM/AAAA" required>
+      {% if weekday_pt(date_br) %}
+      <div class="form-text">Dia: <strong>{{ weekday_pt(date_br) }}</strong></div>
+      {% endif %}
+    </div>
+    <div class="col-md-2"><label class="form-label">Início</label><input class="form-control" name="start" value="{{ request.form.get('start','') }}" placeholder="HH:MM" required></div>
+    <div class="col-md-2"><label class="form-label">Fim</label><input class="form-control" name="end" value="{{ request.form.get('end','') }}" placeholder="HH:MM" required></div>
+    <div class="col-md-3"><label class="form-label">Motivo</label><input class="form-control" name="reason" value="{{ request.form.get('reason','') }}" required></div>
+    <div class="col-12 d-flex gap-2">
+      <button class="btn btn-outline-primary" name="action" value="preview">Preview impacto</button>
+      <button class="btn btn-warning" name="action" value="confirm">Confirmar emergência</button>
+    </div>
+  </form>
+</div>
+
+<div class="rf-card p-3">
+  <h3 class="h6">Preview de reservas impactadas</h3>
+  <ul class="mb-0">
+    {% for b in preview %}
+    <li>{{ b.room_id }} - {{ format_date_br(b.date) }} {{ b.start }}-{{ b.end }} (Setor {{ b.sector }})</li>
+    {% else %}
+    <li class="text-muted">Nenhuma reserva ativa conflitando.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

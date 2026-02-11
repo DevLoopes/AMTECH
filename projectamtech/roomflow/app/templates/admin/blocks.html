@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h5 mb-3">Bloqueios de Sala</h2>
+<div class="rf-card p-3 mb-3">
+  <form method="post" class="row g-2">
+    <div class="col-md-3"><label class="form-label">Sala</label><select class="form-select" name="room_id" required>{% for room in rooms %}<option value="{{ room.id }}">{{ room.name }}</option>{% endfor %}</select></div>
+    <div class="col-md-2">
+      <label class="form-label">Data início</label>
+      <input class="form-control" name="start_date" value="{{ today_br }}" placeholder="DD/MM/AAAA" required>
+      {% if weekday_pt(today_br) %}
+      <div class="form-text">Dia: <strong>{{ weekday_pt(today_br) }}</strong></div>
+      {% endif %}
+    </div>
+    <div class="col-md-2">
+      <label class="form-label">Data fim</label>
+      <input class="form-control" name="end_date" value="{{ today_br }}" placeholder="DD/MM/AAAA" required>
+      {% if weekday_pt(today_br) %}
+      <div class="form-text">Dia: <strong>{{ weekday_pt(today_br) }}</strong></div>
+      {% endif %}
+    </div>
+    <div class="col-md-2"><label class="form-label">Hora início</label><input class="form-control" name="start" placeholder="HH:MM" required></div>
+    <div class="col-md-2"><label class="form-label">Hora fim</label><input class="form-control" name="end" placeholder="HH:MM" required></div>
+    <div class="col-md-3"><label class="form-label">Motivo</label><input class="form-control" name="reason" placeholder="Almoço/manutenção" required></div>
+    <div class="col-12">
+      <label class="form-label d-block">Dias da semana</label>
+      <div class="d-flex flex-wrap gap-3">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="1" id="w1"><label class="form-check-label" for="w1">1 - Seg</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="2" id="w2"><label class="form-check-label" for="w2">2 - Ter</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="3" id="w3"><label class="form-check-label" for="w3">3 - Qua</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="4" id="w4"><label class="form-check-label" for="w4">4 - Qui</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="5" id="w5"><label class="form-check-label" for="w5">5 - Sex</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="6" id="w6"><label class="form-check-label" for="w6">6 - Sáb</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="weekdays" value="7" id="w7"><label class="form-check-label" for="w7">7 - Dom</label></div>
+      </div>
+    </div>
+    <div class="col-12"><button class="btn btn-rf">Criar bloqueio</button></div>
+  </form>
+</div>
+
+<div class="rf-card p-3">
+  <table class="table table-sm align-middle">
+    <thead><tr><th>ID</th><th>Sala</th><th>Data início</th><th>Data fim</th><th>Dias</th><th>Intervalo</th><th>Motivo</th><th>Status</th><th>Ação</th></tr></thead>
+    <tbody>
+      {% for b in blocks %}
+      <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.room_id }}</td>
+        <td>{{ format_date_br(b.start_date or b.date) if (b.start_date or b.date) else '-' }}</td>
+        <td>{{ format_date_br(b.end_date or b.date) if (b.end_date or b.date) else '-' }}</td>
+        <td>{{ (b.weekdays|join(', ')) if b.weekdays else ('[' ~ b.weekday ~ ']') if b.weekday is not none else '-' }}</td>
+        <td>{{ b.start }} - {{ b.end }}</td>
+        <td>{{ b.reason }}</td>
+        <td><span class="badge text-bg-secondary">{{ b.status }}</span></td>
+        <td>
+          {% if b.status == 'ATIVO' %}
+          <form method="post" action="{{ url_for('admin.blocks_disable', block_id=b.id) }}"><button class="btn btn-sm btn-outline-danger">Desativar</button></form>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="9" class="text-center text-muted">Sem bloqueios cadastrados.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

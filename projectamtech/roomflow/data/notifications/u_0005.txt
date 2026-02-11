@@ -1,0 +1,86 @@
+{
+  "user_id": "u_0005",
+  "items": [
+    {
+      "id": "n_0001",
+      "user_id": "u_0005",
+      "type": "BOOKING_EXPIRED",
+      "title": "Reserva expirada",
+      "message": "Reserva em 11/02/2026 12:11-12:49 expirou por falta de check-in.",
+      "created_at": "2026-02-11T12:29:12",
+      "read_at": "2026-02-11T12:31:40"
+    },
+    {
+      "id": "n_0004",
+      "user_id": "u_0005",
+      "type": "REQUEST_APPROVED",
+      "title": "Solicitação aprovada",
+      "message": "Reserva criada para 11/02/2026 09:30-15:45.",
+      "created_at": "2026-02-11T12:39:48",
+      "read_at": "2026-02-11T12:59:46"
+    },
+    {
+      "id": "n_0005",
+      "user_id": "u_0005",
+      "type": "BOOKING_EXPIRED",
+      "title": "Reserva expirada",
+      "message": "Reserva em 11/02/2026 09:30-15:45 expirou por falta de check-in.",
+      "created_at": "2026-02-11T12:39:48",
+      "read_at": "2026-02-11T12:59:47"
+    },
+    {
+      "id": "n_0012",
+      "user_id": "u_0005",
+      "type": "REQUEST_APPROVED",
+      "title": "Solicitação aprovada",
+      "message": "Reserva criada para 11/02/2026 09:00-13:45.",
+      "created_at": "2026-02-11T13:00:43",
+      "read_at": "2026-02-11T13:01:41"
+    },
+    {
+      "id": "n_0013",
+      "user_id": "u_0005",
+      "type": "REQUEST_APPROVED",
+      "title": "Solicitação aprovada",
+      "message": "Reserva criada para 09/02/2026 08:00-08:30.",
+      "created_at": "2026-02-11T13:03:39",
+      "read_at": "2026-02-11T13:19:20"
+    },
+    {
+      "id": "n_0014",
+      "user_id": "u_0005",
+      "type": "BOOKING_EXPIRED",
+      "title": "Reserva expirada",
+      "message": "Reserva em 09/02/2026 08:00-08:30 expirou por falta de check-in.",
+      "created_at": "2026-02-11T13:03:39",
+      "read_at": "2026-02-11T13:19:19"
+    },
+    {
+      "id": "n_0015",
+      "user_id": "u_0005",
+      "type": "REQUEST_DENIED",
+      "title": "Solicitação negada",
+      "message": "Motivo: Não informado",
+      "created_at": "2026-02-11T13:25:08",
+      "read_at": null
+    },
+    {
+      "id": "n_0016",
+      "user_id": "u_0005",
+      "type": "REQUEST_DENIED",
+      "title": "Solicitação negada",
+      "message": "Motivo: Não informado",
+      "created_at": "2026-02-11T13:25:09",
+      "read_at": null
+    },
+    {
+      "id": "n_0017",
+      "user_id": "u_0005",
+      "type": "BOOKING_EXPIRED",
+      "title": "Reserva expirada",
+      "message": "Reserva em 11/02/2026 09:00-13:45 expirou por falta de check-in.",
+      "created_at": "2026-02-11T13:45:04",
+      "read_at": null
+    }
+  ]
+}

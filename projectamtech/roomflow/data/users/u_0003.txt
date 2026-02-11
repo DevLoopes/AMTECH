@@ -1,0 +1,16 @@
+{
+  "id": "u_0003",
+  "username": "dev1",
+  "role": "USER",
+  "sector": "DESENVOLVIMENTO",
+  "password": {
+    "algo": "sha256",
+    "iterations": 220000,
+    "salt": "3PNb56bVAY+1fp+ZlnpZgA==",
+    "hash": "I97ugAhqVy0xTGfwEvOBOLKxbAcGI5IDaWIRbcZWj14="
+  },
+  "created_at": "",
+  "updated_at": "2026-02-11T12:34:23",
+  "must_change_password": true,
+  "is_active": true
+}

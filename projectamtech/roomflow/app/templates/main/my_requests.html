@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="h5 mb-3">Minhas Solicitações</h2>
+<div class="rf-card p-3">
+  <table class="table table-sm align-middle">
+    <thead><tr><th>ID</th><th>Sala</th><th>Data</th><th>Hora</th><th>Status</th><th>Conflito</th><th>Ação</th></tr></thead>
+    <tbody>
+      {% for r in requests %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.room_id }}</td>
+        <td>{{ format_date_br(r.date) }}</td>
+        <td>{{ r.start }} - {{ r.end }}</td>
+        <td><span class="badge text-bg-secondary">{{ r.status }}</span></td>
+        <td>{% if r.has_conflict %}<span class="badge text-bg-warning">Sim</span>{% else %}<span class="badge text-bg-success">Não</span>{% endif %}</td>
+        <td>
+          {% if r.status == 'PENDENTE' %}
+          <form method="post" action="{{ url_for('main.my_cancel_request', request_id=r.id) }}" class="d-flex gap-2">
+            <input class="form-control form-control-sm" name="reason" placeholder="Motivo">
+            <button class="btn btn-sm btn-outline-danger">Cancelar</button>
+          </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7" class="text-center text-muted">Sem solicitações.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
